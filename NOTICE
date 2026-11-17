@@ -8,6 +8,10 @@ This repository is licensed per directory:
   design/, docs/, parent/wireframes/,
   parent/digest/, and other documentation        Creative Commons Attribution 4.0 International
 
+  public/                                        Not covered by the above; the page
+                                                 runtime is from a Claude Design export.
+                                                 See public/THIRD-PARTY.md.
+
 Full texts are in LICENSES/. The root LICENSE file is the Apache License 2.0.
 
 The name "Roger" and the Roger logo are not licensed by any of the above.
