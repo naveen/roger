@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 720" width="1060" height="720" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif" font-size="13">
+<title>Roger DIY wiring</title>
+<desc>Wiring between a XIAO ESP32S3, an INMP441 microphone, a MAX98357A amplifier, a speaker, a talk button, a volume pot and a battery.</desc>
+<rect width="1060" height="720" fill="#F3ECDF"/>
+<text x="32" y="42" font-size="20" font-weight="700" fill="#17322C">Roger DIY wiring</text>
+<text x="32" y="62" fill="#6B827B">Standard wiring. The pin map lives in firmware/include/boards/xiao_diy.h</text>
+<rect x="440" y="88" width="180" height="444" rx="10" fill="#9FF0C4" stroke="#17322C" stroke-width="1.5"/>
+<text x="452" y="109" font-weight="700" fill="#17322C">XIAO ESP32S3</text>
+<text x="452" y="125" font-size="11" fill="#6B827B">USB-C at this end</text>
+<text x="452" y="154" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D0</text>
+<text x="484" y="154" text-anchor="start" font-size="10" fill="#6B827B">GPIO1</text>
+<text x="452" y="212" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D1</text>
+<text x="484" y="212" text-anchor="start" font-size="10" fill="#6B827B">GPIO2</text>
+<text x="452" y="270" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D2</text>
+<text x="484" y="270" text-anchor="start" font-size="10" fill="#6B827B">GPIO3</text>
+<text x="452" y="328" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D3</text>
+<text x="484" y="328" text-anchor="start" font-size="10" fill="#6B827B">GPIO4</text>
+<text x="452" y="386" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D4</text>
+<text x="484" y="386" text-anchor="start" font-size="10" fill="#6B827B">GPIO5</text>
+<text x="452" y="444" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D5</text>
+<text x="484" y="444" text-anchor="start" font-size="10" fill="#6B827B">GPIO6</text>
+<text x="452" y="502" text-anchor="start" font-size="14" fill="#17322C" font-weight="700">D6</text>
+<text x="484" y="502" text-anchor="start" font-size="10" fill="#6B827B">GPIO43</text>
+<text x="608" y="154" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">5V</text>
+<text x="608" y="212" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">GND</text>
+<text x="608" y="270" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">3V3</text>
+<text x="608" y="328" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">D10</text>
+<text x="574" y="328" text-anchor="end" font-size="10" fill="#6B827B">GPIO9</text>
+<text x="608" y="386" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">D9</text>
+<text x="574" y="386" text-anchor="end" font-size="10" fill="#6B827B">GPIO8</text>
+<text x="608" y="444" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">D8</text>
+<text x="574" y="444" text-anchor="end" font-size="10" fill="#6B827B">GPIO7</text>
+<text x="608" y="502" text-anchor="end" font-size="14" fill="#17322C" font-weight="700">D7</text>
+<text x="574" y="502" text-anchor="end" font-size="10" fill="#6B827B">GPIO44</text>
+<rect x="180" y="128" width="180" height="44" rx="10" fill="#FFC83D" stroke="#17322C" stroke-width="1.5"/>
+<text x="192" y="149" font-weight="700" fill="#17322C">Talk button</text>
+<path d="M360,150 L440,150" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="150" r="4" fill="#F2622E"/><circle cx="440" cy="150" r="4" fill="#F2622E"/>
+<path d="M168,150 L180,150" stroke="#17322C" stroke-width="1.5"/>
+<rect x="122" y="140" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="145.0" y="154" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<text x="114" y="136" text-anchor="end" font-size="10" fill="#6B827B">other leg</text>
+<rect x="180" y="178" width="180" height="230" rx="10" fill="#FFFFFF" stroke="#17322C" stroke-width="1.5"/>
+<text x="192" y="199" font-weight="700" fill="#17322C">MAX98357A amp</text>
+<text x="350" y="212" text-anchor="end" font-size="12" fill="#17322C">BCLK</text>
+<path d="M360,208 L440,208" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="208" r="4" fill="#F2622E"/><circle cx="440" cy="208" r="4" fill="#F2622E"/>
+<text x="350" y="270" text-anchor="end" font-size="12" fill="#17322C">LRC</text>
+<path d="M360,266 L440,266" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="266" r="4" fill="#F2622E"/><circle cx="440" cy="266" r="4" fill="#F2622E"/>
+<text x="350" y="328" text-anchor="end" font-size="12" fill="#17322C">DIN</text>
+<path d="M360,324 L440,324" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="324" r="4" fill="#F2622E"/><circle cx="440" cy="324" r="4" fill="#F2622E"/>
+<text x="350" y="386" text-anchor="end" font-size="12" fill="#17322C">SD</text>
+<path d="M360,382 L440,382" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="382" r="4" fill="#F2622E"/><circle cx="440" cy="382" r="4" fill="#F2622E"/>
+<text x="190" y="270" text-anchor="start" font-size="12" fill="#17322C">Vin</text>
+<path d="M168,266 L180,266" stroke="#17322C" stroke-width="1.5"/>
+<rect x="122" y="256" width="46" height="20" rx="10" fill="#9A6B00"/>
+<text x="145.0" y="270" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">BAT+</text>
+<text x="190" y="328" text-anchor="start" font-size="12" fill="#17322C">GND</text>
+<path d="M168,324 L180,324" stroke="#17322C" stroke-width="1.5"/>
+<rect x="122" y="314" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="145.0" y="328" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<text x="190" y="386" text-anchor="start" font-size="12" fill="#17322C">+ and −</text>
+<rect x="20" y="360" width="104" height="44" rx="10" fill="#FFFFFF" stroke="#17322C" stroke-width="1.5"/>
+<text x="32" y="381" font-weight="700" fill="#17322C">Speaker</text>
+<text x="32" y="397" font-size="11" fill="#6B827B">8 Ω, 40 mm</text>
+<path d="M124,378 L180,378 M124,386 L180,386" stroke="#17322C" stroke-width="1.5"/>
+<rect x="180" y="418" width="180" height="64" rx="10" fill="#FFFFFF" stroke="#17322C" stroke-width="1.5"/>
+<text x="192" y="439" font-weight="700" fill="#17322C">Volume pot</text>
+<text x="350" y="444" text-anchor="end" font-size="12" fill="#17322C">wiper</text>
+<path d="M360,440 L440,440" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="360" cy="440" r="4" fill="#F2622E"/><circle cx="440" cy="440" r="4" fill="#F2622E"/>
+<text x="190" y="456" text-anchor="start" font-size="12" fill="#17322C">end</text>
+<path d="M168,452 L180,452" stroke="#17322C" stroke-width="1.5"/>
+<rect x="122" y="442" width="46" height="20" rx="10" fill="#C7461A"/>
+<text x="145.0" y="456" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">3V3</text>
+<text x="190" y="478" text-anchor="start" font-size="12" fill="#17322C">end</text>
+<path d="M168,474 L180,474" stroke="#17322C" stroke-width="1.5"/>
+<rect x="122" y="464" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="145.0" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<text x="424" y="502" text-anchor="end" font-size="11" fill="#6B827B">optional status LED, through 220 Ω to GND</text>
+<path d="M430,498 L440,498" stroke="#6B827B" stroke-width="2" stroke-dasharray="3 3"/>
+<text x="636" y="154" text-anchor="start" font-size="11" fill="#6B827B">not used</text>
+<path d="M620,208 L632,208" stroke="#17322C" stroke-width="1.5"/>
+<rect x="632" y="198" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="655.0" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<path d="M620,266 L632,266" stroke="#17322C" stroke-width="1.5"/>
+<rect x="632" y="256" width="46" height="20" rx="10" fill="#C7461A"/>
+<text x="655.0" y="270" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">3V3</text>
+<text x="636" y="502" text-anchor="start" font-size="11" fill="#6B827B">not used</text>
+<rect x="800" y="278" width="150" height="276" rx="10" fill="#FFFFFF" stroke="#17322C" stroke-width="1.5"/>
+<text x="812" y="299" font-weight="700" fill="#17322C">INMP441 mic</text>
+<text x="810" y="328" text-anchor="start" font-size="12" fill="#17322C">SD</text>
+<path d="M620,324 L800,324" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="620" cy="324" r="4" fill="#F2622E"/><circle cx="800" cy="324" r="4" fill="#F2622E"/>
+<text x="810" y="386" text-anchor="start" font-size="12" fill="#17322C">WS</text>
+<path d="M620,382 L800,382" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="620" cy="382" r="4" fill="#F2622E"/><circle cx="800" cy="382" r="4" fill="#F2622E"/>
+<text x="810" y="444" text-anchor="start" font-size="12" fill="#17322C">SCK</text>
+<path d="M620,440 L800,440" stroke="#F2622E" stroke-width="2.5"/>
+<circle cx="620" cy="440" r="4" fill="#F2622E"/><circle cx="800" cy="440" r="4" fill="#F2622E"/>
+<text x="810" y="492" text-anchor="start" font-size="12" fill="#17322C">VDD</text>
+<path d="M950,488 L962,488" stroke="#17322C" stroke-width="1.5"/>
+<rect x="962" y="478" width="46" height="20" rx="10" fill="#C7461A"/>
+<text x="985.0" y="492" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">3V3</text>
+<text x="810" y="518" text-anchor="start" font-size="12" fill="#17322C">GND and L/R</text>
+<path d="M950,514 L962,514" stroke="#17322C" stroke-width="1.5"/>
+<rect x="962" y="504" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="985.0" y="518" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<rect x="290" y="560" width="480" height="96" rx="10" fill="#FFFFFF" stroke="#17322C" stroke-width="1.5"/>
+<text x="302" y="581" font-weight="700" fill="#17322C">Battery</text>
+<text x="302" y="597" font-size="11" fill="#6B827B">3.7 V LiPo with a protection circuit</text>
+<text x="302" y="622" text-anchor="start" font-size="12" fill="#17322C">+   →   slide switch   →</text>
+<rect x="442" y="608" width="46" height="20" rx="10" fill="#9A6B00"/>
+<text x="465.0" y="622" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">BAT+</text>
+<text x="496" y="622" text-anchor="start" font-size="11" fill="#6B827B">= BAT+ pad under the XIAO, and amp Vin</text>
+<text x="302" y="644" text-anchor="start" font-size="12" fill="#17322C">−   →   BAT− pad under the XIAO</text>
+<path d="M32,692 L64,692" stroke="#F2622E" stroke-width="2.5"/>
+<text x="72" y="696" text-anchor="start" font-size="11" fill="#6B827B">signal wire</text>
+<rect x="160" y="682" width="46" height="20" rx="10" fill="#17322C"/>
+<text x="183.0" y="696" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">GND</text>
+<text x="214" y="696" text-anchor="start" font-size="11" fill="#6B827B">pills with the same name are all joined together</text>
+</svg>

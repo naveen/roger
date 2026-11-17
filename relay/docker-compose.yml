@@ -1,0 +1,22 @@
+# Self-hosted Roger relay.
+#
+#   cp .env.example .env            # add your keys
+#   cp devices.example.json devices.json   # add your radio (see README)
+#   docker compose up -d
+#
+# The relay speaks plain HTTP on 8080. Radios on your home network can use it
+# as ws://<this-machine>:8080. To reach it from outside, put it behind a TLS
+# reverse proxy (see README) and use wss://.
+services:
+  relay:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./devices.json:/roger/devices.json:ro
+      - roger-data:/roger/data
+
+volumes:
+  roger-data:

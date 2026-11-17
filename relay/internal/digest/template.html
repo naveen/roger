@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{.Kid}} on the air: {{.DateLong}}</title>
+</head>
+<body style="margin:0;padding:0;background:#F3ECDF;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;color:#17322C;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3ECDF;">
+<tr><td align="center" style="padding:28px 16px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
+
+<tr><td style="padding:0 4px 18px;font-size:20px;font-weight:800;letter-spacing:-0.02em;">
+<span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:#F2622E;margin-right:8px;"></span>Roger
+</td></tr>
+
+<tr><td style="background:#FFFFFF;border-radius:16px;padding:28px 26px;">
+<p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#C7461A;">{{.DateLong}}</p>
+<h1 style="margin:0 0 14px;font-size:26px;line-height:1.15;letter-spacing:-0.02em;">
+{{- if .Questions}}{{.Kid}} asked Roger {{.Questions}} {{if eq .Questions 1}}thing{{else}}things{{end}} today.{{else}}{{.Kid}}'s radio was quiet today.{{end -}}
+</h1>
+{{if .Questions}}<p style="margin:0 0 20px;font-size:15px;line-height:1.5;color:#3F5A53;">About {{.AirtimeMinutes}} {{if eq .AirtimeMinutes 1}}minute{{else}}minutes{{end}} on the air{{if .AirtimeLimit}}, of {{.AirtimeLimit}} allowed{{end}}.</p>{{end}}
+
+{{if .HeadsUp}}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 22px;">
+<tr><td style="background:#FDEBDD;border-left:4px solid #F2622E;border-radius:8px;padding:14px 16px;">
+<p style="margin:0 0 8px;font-size:14px;font-weight:700;">Worth a conversation</p>
+{{range .HeadsUp}}<p style="margin:0 0 6px;font-size:15px;line-height:1.45;">&ldquo;{{.}}&rdquo;</p>{{end}}
+<p style="margin:8px 0 0;font-size:13px;line-height:1.45;color:#3F5A53;">Roger kept its answer short and suggested asking a grown-up.</p>
+</td></tr>
+</table>
+{{end}}
+
+{{if .Topics}}
+<p style="margin:0 0 8px;font-size:14px;font-weight:700;">Curious about</p>
+<p style="margin:0 0 20px;font-size:15px;line-height:1.9;">
+{{range .Topics}}<span style="display:inline-block;background:#F3ECDF;border-radius:999px;padding:2px 12px;margin:0 4px 4px 0;">{{.}}</span>{{end}}
+</p>
+{{end}}
+
+{{if .Asked}}
+<p style="margin:0 0 8px;font-size:14px;font-weight:700;">Heard on the air</p>
+{{range .Asked}}<p style="margin:0 0 6px;font-size:15px;line-height:1.45;color:#3F5A53;">&ldquo;{{.}}&rdquo;</p>{{end}}
+{{if .MoreAsked}}<p style="margin:6px 0 0;font-size:13px;color:#6B827B;">and {{.MoreAsked}} more.</p>{{end}}
+<div style="height:14px;"></div>
+{{end}}
+
+{{if .Remembered}}
+<p style="margin:0 0 8px;font-size:14px;font-weight:700;">Asked Roger to remember</p>
+{{range .Remembered}}<p style="margin:0 0 6px;font-size:15px;line-height:1.45;color:#3F5A53;">{{.}}</p>{{end}}
+<div style="height:14px;"></div>
+{{end}}
+
+{{if .Steered}}<p style="margin:0 0 14px;font-size:14px;line-height:1.45;color:#3F5A53;">Roger steered around one of your family topics {{.Steered}} {{if eq .Steered 1}}time{{else}}times{{end}}.</p>{{end}}
+{{if .Blocked}}<p style="margin:0 0 14px;font-size:14px;line-height:1.45;color:#3F5A53;">{{.Blocked}} {{if eq .Blocked 1}}press was{{else}}presses were{{end}} turned away by quiet hours or the daily limit.</p>{{end}}
+</td></tr>
+
+<tr><td style="padding:18px 6px 0;font-size:12px;line-height:1.5;color:#6B827B;">
+This is a summary, not a recording. Roger does not keep audio. Text from today is deleted after {{.RetentionDays}} days.<br>
+Roger is an AI and can get things wrong. If something here looks off, it is worth asking {{.Kid}} about it.
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>

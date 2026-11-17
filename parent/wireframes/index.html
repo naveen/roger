@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roger parent app: wireframes</title>
+<style>
+  :root { --ink:#17322C; --paper:#F3ECDF; --line:#B9AE98; --fill:#E7DECB; --mute:#6B827B; --accent:#F2622E; --card:#FFFFFF; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+  header { max-width:1180px; margin:0 auto; padding:32px 20px 8px; }
+  h1 { margin:0 0 6px; font-size:26px; letter-spacing:-0.02em; }
+  header p { margin:0; max-width:760px; color:var(--mute); }
+  .note { display:inline-block; margin-top:14px; padding:6px 12px; border:1.5px dashed var(--accent); border-radius:8px; color:#A8401B; font-size:13px; }
+  main { max-width:1180px; margin:0 auto; padding:20px; display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:28px 24px; }
+  figure { margin:0; }
+  figcaption { margin-top:12px; font-size:13px; color:var(--mute); }
+  figcaption b { display:block; color:var(--ink); font-size:14px; margin-bottom:2px; }
+  .phone { background:var(--card); border:2px solid var(--ink); border-radius:28px; padding:18px 16px 20px; min-height:560px; display:flex; flex-direction:column; gap:12px; }
+  .bar { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--mute); }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); display:inline-block; margin-right:6px; }
+  h2 { margin:4px 0 0; font-size:20px; letter-spacing:-0.01em; }
+  .sub { margin:0; color:var(--mute); font-size:13px; }
+  .field { border:1.5px solid var(--line); border-radius:10px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center; font-size:14px; }
+  .field span:last-child { color:var(--mute); }
+  .label { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--mute); margin:6px 0 -4px; }
+  .btn { margin-top:auto; background:var(--ink); color:var(--paper); border-radius:999px; padding:12px; text-align:center; font-weight:600; }
+  .btn.ghost { background:none; color:var(--ink); border:1.5px solid var(--ink); margin-top:0; }
+  .btn.danger { background:none; color:#A8401B; border:1.5px solid #A8401B; margin-top:0; }
+  .ph { background:repeating-linear-gradient(45deg,var(--fill),var(--fill) 6px,#DDD2BC 6px,#DDD2BC 12px); border-radius:12px; height:120px; display:flex; align-items:center; justify-content:center; color:var(--mute); font-size:12px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { background:var(--fill); border-radius:999px; padding:3px 11px; font-size:13px; }
+  .chip.add { background:none; border:1.5px dashed var(--line); color:var(--mute); }
+  .track { height:6px; border-radius:3px; background:var(--fill); position:relative; margin:8px 0 2px; }
+  .track i { position:absolute; left:0; top:0; bottom:0; border-radius:3px; background:var(--ink); }
+  .track b { position:absolute; top:-6px; width:18px; height:18px; border-radius:50%; background:var(--card); border:2px solid var(--ink); }
+  .alert { border-left:4px solid var(--accent); background:#FDEBDD; border-radius:8px; padding:10px 12px; font-size:14px; }
+  .alert small { display:block; color:var(--mute); margin-top:4px; }
+  .quote { color:#3F5A53; font-size:14px; margin:0; }
+  .big { font-size:34px; font-weight:800; letter-spacing:-0.03em; line-height:1; }
+  .row { display:flex; gap:10px; }
+  .row > * { flex:1; }
+  .stat { border:1.5px solid var(--line); border-radius:10px; padding:10px 12px; }
+  .stat small { color:var(--mute); display:block; }
+  footer { max-width:1180px; margin:0 auto; padding:8px 20px 40px; color:var(--mute); font-size:13px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Roger parent app: wireframes</h1>
+  <p>Six screens that cover everything a grown-up does with Roger. They are deliberately plain: the point is what is on each screen and what is not.</p>
+  <div class="note">Wireframes only. Today the rules are a JSON file and the digest is an email. Nothing here is built yet.</div>
+</header>
+<main>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span><span class="dot"></span>Roger</span><span>1 of 3</span></div>
+    <h2>Turn Roger on</h2>
+    <p class="sub">Hold the talk button for three seconds. Roger will say a four-word code.</p>
+    <div class="ph">picture of the radio, button highlighted</div>
+    <div class="label">Code</div>
+    <div class="field"><span>river · tiger · seven · blue</span><span></span></div>
+    <p class="sub">The code proves the radio is in your hands. It works once.</p>
+    <div class="btn">Pair this radio</div>
+  </div>
+  <figcaption><b>1. Pair</b>Spoken code, because the radio has no screen. Replaces the compiled-in token.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span><span class="dot"></span>Roger</span><span>2 of 3</span></div>
+    <h2>Who is on the radio?</h2>
+    <p class="sub">Roger uses this to pick its words. That is all we ask about your kid.</p>
+    <div class="label">What should Roger call them?</div>
+    <div class="field"><span>Sam</span><span>first name or nickname</span></div>
+    <div class="label">Age</div>
+    <div class="field"><span>7</span><span>− &nbsp; +</span></div>
+    <p class="sub">Roger is made for ages 4 to 12.</p>
+    <div class="label">Where to send the daily summary</div>
+    <div class="field"><span>parent@example.com</span><span></span></div>
+    <div class="btn">Next</div>
+  </div>
+  <figcaption><b>2. Kid</b>Two facts and an email. No last name, birthday, school or photo, here or anywhere.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span><span class="dot"></span>Roger</span><span>3 of 3</span></div>
+    <h2>Your rules</h2>
+    <p class="sub">You can change these any time.</p>
+    <div class="label">Quiet hours</div>
+    <div class="field"><span>7:30 pm to 7:00 am</span><span>edit</span></div>
+    <div class="chips"><span class="chip add">+ add another</span></div>
+    <div class="label">Air time each day · 30 min</div>
+    <div class="track"><i style="width:33%"></i><b style="left:calc(33% - 9px)"></b></div>
+    <div class="label">Loudest volume · 70%</div>
+    <div class="track"><i style="width:70%"></i><b style="left:calc(70% - 9px)"></b></div>
+    <div class="label">Topics to steer around</div>
+    <div class="chips"><span class="chip">scary stories ×</span><span class="chip">the news ×</span><span class="chip add">+ add</span></div>
+    <div class="btn">Start</div>
+  </div>
+  <figcaption><b>3. Rules</b>One screen. Maps one-to-one onto <code>rules.schema.json</code>.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span><span class="dot"></span>Roger</span><span>Mon 16 Nov</span></div>
+    <div><div class="big">5</div><p class="sub">things Sam asked Roger today</p></div>
+    <div class="alert">Worth a conversation<small>“What happens when you die?”</small></div>
+    <div class="label">Curious about</div>
+    <div class="chips"><span class="chip">worms and rain</span><span class="chip">clouds</span><span class="chip">forts</span></div>
+    <div class="label">Heard on the air</div>
+    <p class="quote">“Why do worms come out when it rains?”</p>
+    <p class="quote">“Can a cloud be heavy?”</p>
+    <div class="row"><div class="stat"><b>12 min</b><small>of 30 on the air</small></div><div class="stat"><b>1</b><small>turned away by quiet hours</small></div></div>
+    <div class="btn ghost" style="margin-top:auto">Earlier days</div>
+  </div>
+  <figcaption><b>4. Today</b>The same content as the daily email. A summary, not a feed: no live view, no audio, no full transcript.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span>‹ Today</span><span>3:42 pm</span></div>
+    <h2>Worth a conversation</h2>
+    <div class="label">Sam asked</div>
+    <p class="quote">“What happens when you die?”</p>
+    <div class="label">Roger said</div>
+    <p class="quote">“That is a big question, and people have wondered about it for a very long time. It is a really good one to ask a grown-up you trust. Over.”</p>
+    <div class="alert" style="background:var(--fill);border-color:var(--ink)">Roger keeps answers like this short on purpose and hands the rest to you.</div>
+    <div class="btn ghost" style="margin-top:auto">Roger got this wrong</div>
+  </div>
+  <figcaption><b>5. Heads-up</b>The one place a parent sees Roger's exact words. "Got this wrong" is the feedback loop for the safety prompt.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone">
+    <div class="bar"><span>‹ Settings</span><span></span></div>
+    <h2>What Roger keeps</h2>
+    <p class="sub">Roger never keeps recordings. It keeps the words, for a while.</p>
+    <div class="label">Keep the text of each day for</div>
+    <div class="field"><span>30 days</span><span>change</span></div>
+    <div class="label">Keep things Sam asked Roger to remember for</div>
+    <div class="field"><span>90 days</span><span>change</span></div>
+    <div class="label">Remembered now · 2</div>
+    <div class="field"><span>A fort with a slide exit</span><span>forget</span></div>
+    <div class="field"><span>The cat is called Biscuit</span><span>forget</span></div>
+    <div class="btn ghost" style="margin-top:auto">Download everything</div>
+    <div class="btn danger">Delete everything</div>
+  </div>
+  <figcaption><b>6. Data</b>See it, export it, delete it. "Delete everything" is <code>roger-relay erase</code> today.</figcaption>
+</figure>
+
+</main>
+<footer>Design rules these screens follow are in <code>parent/README.md</code>.</footer>
+</body>
+</html>

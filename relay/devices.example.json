@@ -1,0 +1,20 @@
+{
+  "devices": [
+    {
+      "id": "roger-01",
+      "token_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "kid": { "name": "Sam", "age": 7 },
+      "timezone": "America/Los_Angeles",
+      "parent_email": "parent@example.com",
+      "rules": {
+        "quiet_hours": [{ "start": "19:30", "end": "07:00" }],
+        "daily_airtime_minutes": 30,
+        "volume_cap": 70,
+        "steer_around": ["scary stories", "the news"],
+        "transcript_retention_days": 30,
+        "remembered_retention_days": 90,
+        "digest": { "enabled": true, "send_at": "19:00", "include_questions": true }
+      }
+    }
+  ]
+}

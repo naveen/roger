@@ -1,0 +1,26 @@
+Roger
+Copyright 2026 the Roger authors
+
+This repository is licensed per directory:
+
+  protocol/, relay/, firmware/, parent/rules.*   Apache License 2.0
+  hardware/                                      CERN Open Hardware Licence v2 - Permissive
+  design/, docs/, parent/wireframes/,
+  parent/digest/, and other documentation        Creative Commons Attribution 4.0 International
+
+Full texts are in LICENSES/. The root LICENSE file is the Apache License 2.0.
+
+The name "Roger" and the Roger logo are not licensed by any of the above.
+See TRADEMARK.md.
+
+Third-party software used at build time (not redistributed here):
+
+  github.com/coder/websocket      ISC
+  ArduinoJson                     MIT
+  arduinoWebSockets               LGPL-2.1
+  M5Unified, M5GFX                MIT (M5GFX bundles components under other
+                                  permissive licences; see its repository)
+  Arduino core for ESP32          LGPL-2.1 and Apache-2.0 components
+
+Firmware binaries you distribute link against the LGPL libraries above;
+if you ship devices, read those licences for what you owe recipients.

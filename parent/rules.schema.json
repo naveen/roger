@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/naveen/roger/parent/rules.schema.json",
+  "title": "Roger parent rules",
+  "description": "What a parent can set for one radio. The relay enforces these; the radio only mirrors the volume cap. Mirrors relay/internal/rules/rules.go.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "quiet_hours": {
+      "description": "Daily windows, in the radio's timezone, when presses are refused. A window may wrap midnight.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["start", "end"],
+        "properties": {
+          "start": { "$ref": "#/$defs/time" },
+          "end": { "$ref": "#/$defs/time" }
+        }
+      },
+      "default": [{ "start": "19:30", "end": "07:00" }]
+    },
+    "daily_airtime_minutes": {
+      "description": "Total audio per day, counting both the kid's presses and Roger's replies. 0 means no limit.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1440,
+      "default": 30
+    },
+    "volume_cap": {
+      "description": "Loudest the radio may play, as a percentage of its maximum.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 70
+    },
+    "steer_around": {
+      "description": "Topics Roger should not discuss. Roger redirects and the digest counts how often. Plain phrases, as you would say them.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 80 },
+      "maxItems": 20,
+      "default": []
+    },
+    "transcript_retention_days": {
+      "description": "Days the text of each press is kept before it is deleted.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 365,
+      "default": 30
+    },
+    "remembered_retention_days": {
+      "description": "Days Roger keeps things the kid asked it to remember.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 365,
+      "default": 90
+    },
+    "digest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "send_at": { "$ref": "#/$defs/time", "default": "19:00" },
+        "include_questions": {
+          "description": "Quote up to five of the day's ordinary questions. Topics and heads-ups are always included.",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "time": {
+      "description": "24-hour local time, HH:MM.",
+      "type": "string",
+      "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  relay:
+    name: Relay tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: relay
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: relay/go.mod
+      - name: Format
+        run: test -z "$(gofmt -l .)"
+      - name: Vet
+        run: go vet ./...
+      - name: Test
+        run: go test ./... -race -count=1
+
+  firmware:
+    name: Firmware builds
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: firmware
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.platformio
+          key: pio-${{ hashFiles('firmware/platformio.ini') }}
+      - name: Install PlatformIO
+        run: pip install platformio
+      - name: Use the example config
+        run: cp include/config.example.h include/config.h
+      - name: Build both boards
+        run: pio run -e m5sticks3 -e xiao_diy
+
+  schema:
+    name: Parent rules schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jsonschema
+      - name: Example validates against the schema
+        run: |
+          python - <<'PY'
+          import json, jsonschema
+          schema = json.load(open("parent/rules.schema.json"))
+          jsonschema.Draft202012Validator.check_schema(schema)
+          jsonschema.validate(json.load(open("parent/rules.example.json")), schema)
+          for d in json.load(open("relay/devices.example.json"))["devices"]:
+              jsonschema.validate(d["rules"], schema)
+          print("ok")
+          PY

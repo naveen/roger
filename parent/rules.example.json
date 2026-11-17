@@ -1,0 +1,12 @@
+{
+  "quiet_hours": [
+    { "start": "19:30", "end": "07:00" },
+    { "start": "12:30", "end": "13:30" }
+  ],
+  "daily_airtime_minutes": 30,
+  "volume_cap": 70,
+  "steer_around": ["scary stories", "the news"],
+  "transcript_retention_days": 30,
+  "remembered_retention_days": 90,
+  "digest": { "enabled": true, "send_at": "19:00", "include_questions": true }
+}

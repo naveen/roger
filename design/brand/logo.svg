@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 44" width="150" height="44" role="img" aria-label="Roger">
+  <title>Roger</title>
+  <circle cx="12" cy="24" r="8" fill="#F2622E"/>
+  <!-- The wordmark is set in Bricolage Grotesque ExtraBold. The fallback
+       keeps it legible where the font is not installed; convert to outlines
+       before using this anywhere that matters. -->
+  <text x="30" y="34" font-family="'Bricolage Grotesque','Arial Black',system-ui,sans-serif" font-weight="800" font-size="30" letter-spacing="-0.6" fill="#17322C">Roger</text>
+</svg>
