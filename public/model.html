@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Roger — 3D model</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./assets/three/build/three.module.min.js",
+    "three/addons/controls/OrbitControls.js": "./assets/three/examples/jsm/controls/OrbitControls.js",
+    "three/addons/exporters/OBJExporter.js": "./assets/three/examples/jsm/exporters/OBJExporter.js",
+    "three/addons/exporters/GLTFExporter.js": "./assets/three/examples/jsm/exporters/GLTFExporter.js"
+  }
+}
+</script>
+<style>html,body{margin:0;height:100%;background:#F3ECDF}three-d-stage{display:block;width:100vw;height:100vh}three-d-stage:not(:defined){visibility:hidden}</style>
+</head>
+<body>
+<three-d-stage name="roger-walkie" background="#F3ECDF" autorotate=""></three-d-stage>
+<script src="assets/three-d-stage.js"></script>
+<script type="module">
+const stage = document.querySelector('three-d-stage');
+const { THREE } = await stage.ready;
+const mat = (name, color, roughness, extra = {}) => { const m = new THREE.MeshStandardMaterial({ color, roughness, metalness: 0, ...extra }); m.name = name; return m; };
+const M = {
+  shell: mat('shell_orange', 0xF2622E, 0.55),
+  rubber: mat('rubber_green', 0x1F3D36, 0.9),
+  cream: mat('speaker_cream', 0xF4EBDD, 0.7),
+  yellow: mat('button_yellow', 0xFFC83D, 0.4),
+  led: mat('led_mint', 0x9FF0C4, 0.3, { emissive: 0x4FE0A0, emissiveIntensity: 0.9 }),
+};
+const model = new THREE.Group(); model.name = 'roger';
+const add = (name, geo, m, x = 0, y = 0, z = 0) => { const o = new THREE.Mesh(geo, m); o.name = name; o.position.set(x, y, z); o.castShadow = true; o.receiveShadow = true; model.add(o); return o; };
+const rr = (w, h, r) => { const s = new THREE.Shape(), x = -w / 2, y = -h / 2;
+  s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+  s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+  s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s; };
+const slab = (w, h, r, d, b) => { const g = new THREE.ExtrudeGeometry(rr(w - 2 * b, h - 2 * b, r), { depth: d - 2 * b, bevelEnabled: true, bevelThickness: b, bevelSize: b, bevelSegments: 8, curveSegments: 24 }); g.center(); return g; };
+const disc = (r, h, seg = 48) => new THREE.CylinderGeometry(r, r, h, seg).rotateX(Math.PI / 2);
+
+const W = 0.068, H = 0.118, D = 0.030, F = D / 2;
+add('body', slab(W, H, 0.012, D, 0.007), M.shell);
+add('bumper_band', slab(W + 0.004, H + 0.004, 0.016, 0.013, 0.003), M.rubber);
+
+// speaker
+const SY = 0.020;
+add('speaker_plate', disc(0.0235, 0.002), M.cream, 0, SY, F + 0.0005);
+add('speaker_ring', new THREE.TorusGeometry(0.0238, 0.0016, 12, 64), M.rubber, 0, SY, F + 0.001);
+[[0, 1], [0.0062, 6], [0.0124, 12], [0.0186, 18]].forEach(([rad, n], ri) => {
+  for (let i = 0; i < n; i++) { const a = (i / n) * Math.PI * 2 + ri * 0.2;
+    add(`grille_${ri}_${i}`, disc(0.0017, 0.001, 16), M.rubber, Math.cos(a) * rad, SY + Math.sin(a) * rad, F + 0.0013); }
+});
+add('status_led', new THREE.SphereGeometry(0.0028, 24, 16), M.led, 0, 0.0505, F + 0.0002);
+
+// talk button
+const BY = -0.031;
+add('talk_collar', new THREE.TorusGeometry(0.0182, 0.0022, 12, 64), M.rubber, 0, BY, F + 0.0006);
+add('talk_button', disc(0.017, 0.006), M.yellow, 0, BY, F + 0.002);
+const dome = add('talk_button_dome', new THREE.SphereGeometry(0.017, 48, 24), M.yellow, 0, BY, F + 0.0049); dome.scale.z = 0.22;
+
+// top: antenna + volume knob
+const T = H / 2;
+add('antenna_collar', new THREE.CylinderGeometry(0.0075, 0.0082, 0.005, 32), M.yellow, -0.019, T + 0.0015, 0);
+add('antenna', new THREE.CylinderGeometry(0.0042, 0.006, 0.036, 32), M.rubber, -0.019, T + 0.021, 0);
+add('antenna_tip', new THREE.SphereGeometry(0.0052, 32, 20), M.shell, -0.019, T + 0.040, 0);
+add('volume_knob', new THREE.CylinderGeometry(0.008, 0.0085, 0.008, 32), M.yellow, 0.019, T + 0.003, 0);
+for (let i = 0; i < 10; i++) { const a = i / 10 * Math.PI * 2; add(`knob_rib_${i}`, new THREE.BoxGeometry(0.0012, 0.007, 0.0012), M.rubber, 0.019 + Math.cos(a) * 0.0084, T + 0.003, Math.sin(a) * 0.0084); }
+
+// side: strap lug + grip ribs
+add('strap_lug', new THREE.TorusGeometry(0.0065, 0.002, 12, 40), M.rubber, W / 2 + 0.006, 0.038, 0);
+for (let i = 0; i < 5; i++) add(`grip_rib_${i}`, new THREE.BoxGeometry(0.002, 0.004, 0.011), M.yellow, -(W / 2 + 0.0022), -0.012 - i * 0.008, 0);
+
+// back: belt clip
+add('belt_clip', slab(0.022, 0.066, 0.006, 0.005, 0.0015), M.rubber, 0, 0.012, -(F + 0.0022));
+add('clip_hinge', new THREE.CylinderGeometry(0.003, 0.003, 0.024, 20).rotateZ(Math.PI / 2), M.yellow, 0, 0.043, -(F + 0.004));
+
+model.position.y = H / 2 + 0.002;
+model.rotation.y = -0.35;
+stage.setObject(model);
+if (new URLSearchParams(location.search).has('embed') && stage._controls) stage._controls.enableZoom = false;
+</script>
+
+
+</body></html>

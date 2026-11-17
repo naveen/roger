@@ -74,6 +74,7 @@ Start with tier A.
 | [`parent/`](parent/README.md) | The rules schema, the digest email, and wireframes for a parent app. | Apache-2.0 (schema), CC-BY-4.0 (wireframes) |
 | [`design/`](design/README.md) | Brand colours and type, the radio's sounds, the concept model, the landing page copy. | CC-BY-4.0 |
 | [`docs/`](docs/) | Architecture, the safety model, privacy, cellular, roadmap. | CC-BY-4.0 |
+| [`public/`](public/THIRD-PARTY.md) | The public website: a static landing page with the 3D concept model. Serve the folder as-is. | See `public/THIRD-PARTY.md` |
 
 The name "Roger" and the logo are not covered by those licences. See [`TRADEMARK.md`](TRADEMARK.md).
 

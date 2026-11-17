@@ -3,3 +3,4 @@
 *.wav  binary
 *.png  binary
 hardware/enclosure/preview.svg -diff linguist-generated
+*.woff2 binary
