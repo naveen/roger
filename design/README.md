@@ -9,7 +9,9 @@ What Roger looks, sounds and reads like. Use these when you build anything with 
 | [`model/`](model/) | The concept model's geometry: proportions and colours for the radio itself |
 | [`copy.md`](copy.md) | The words on the concept page |
 
-The concept page with the spinning 3D radio is published here: <https://claude.ai/code/artifact/f5dd78a3-7912-4636-b2aa-0863cf2492c7>. The page itself is not in this repository, because its export bundles viewer code that is not ours to relicense. Its words are in `copy.md` and its model is in `model/`.
+The concept page with the spinning 3D radio is published here: <https://claude.ai/code/artifact/f5dd78a3-7912-4636-b2aa-0863cf2492c7>. A copy that any static host can serve is in [`public/`](../public/), outside the licences in this folder because its export bundles viewer code that is not ours to relicense. Its words are in `copy.md` and its model is in `model/`. Rendered views of the model are in [`docs/images/`](../docs/images/).
+
+![The concept model from the front, three-quarter, side and back](../docs/images/model-turnaround.png)
 
 ## The idea in one line
 

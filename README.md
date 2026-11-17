@@ -4,6 +4,12 @@
 
 This repository is everything you need to build one yourself: the firmware, the server it talks to, the wire protocol between them, the wiring and printable shell, the parent-side rules and daily digest, and the design files.
 
+[![The Roger concept page: "Ask anything. Say over." next to the spinning 3D radio](docs/images/site-hero.png)](public/index.html)
+
+![The concept model from the front, three-quarter, side and back: an orange body with a dark rubber bumper, a cream speaker grille, a yellow talk button, an antenna, a volume knob, a strap lug and a belt clip](docs/images/model-turnaround.png)
+
+The pictures are renders of the concept, not photographs of a built radio. The page is in [`public/`](public/), the model's geometry is in [`design/model/`](design/model/), and the printable shell that follows it is in [`hardware/enclosure/`](hardware/enclosure/). More views are in [`docs/images/`](docs/images/).
+
 ```
    kid                radio                          relay                      grown-up
     |   hold + talk     |      audio (WebSocket)       |                            |
@@ -94,6 +100,16 @@ Everything that decides what a child hears lives in the relay, where it can be r
 Because the turn is push-to-talk, the hard parts of voice products are simply absent: no wake word, no always-on microphone, no voice-activity detection, no echo cancellation. The static covers the thinking time and makes the pause feel like a radio.
 
 More in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## What it looks like
+
+The concept page in [`public/`](public/) is the pitch, written for parents. Serve the folder as-is to see it with the spinning model; the whole page is also captured in [`docs/images/site-full.png`](docs/images/site-full.png).
+
+![Hold to talk. Let go, kshhh. Roger that: the three steps of a turn, on the concept page](docs/images/site-how-it-works.png)
+
+![Heard on the air: sample questions kids ask, and the "Built for outside" and "Nothing to stare at" cards](docs/images/site-heard-on-the-air.png)
+
+For the grown-up side, [`parent/wireframes/`](parent/wireframes/) has the app wireframes and [`parent/digest/`](parent/digest/) has a sample of the daily email.
 
 ## Before a child uses one
 
